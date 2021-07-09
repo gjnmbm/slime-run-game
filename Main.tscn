@@ -1,0 +1,131 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Slime.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ground.tres" type="TileSet" id=2]
+[ext_resource path="res://scripts/boundary.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Main.gd" type="Script" id=4]
+[ext_resource path="res://scripts/mainGround.gd" type="Script" id=5]
+[ext_resource path="res://sprites/obstacles/Spike.png" type="Texture" id=6]
+[ext_resource path="res://Spikes.gd" type="Script" id=7]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sounds/slimeJump.wav" type="AudioStream" id=9]
+[ext_resource path="res://sprites/background/darkerSky.png" type="Texture" id=10]
+[ext_resource path="res://sprites/ground/Dirt.png" type="Texture" id=11]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 25.3652, 32, 7.28073, 32, 8.48637, 16.3437, 22.954, 16.3437 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "Spike.png 0"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 32, 32 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 0
+0/autotile/bitmask_flags = [  ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 32, 32 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 12.7065, 67.9976 )
+
+[node name="Main" type="Node"]
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="Spikes" type="TileMap" parent="."]
+position = Vector2( 90, 351.579 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+script = ExtResource( 7 )
+
+[node name="SpikeTimer" type="Timer" parent="Spikes"]
+wait_time = 0.75
+autostart = true
+
+[node name="Ground" type="TileMap" parent="."]
+position = Vector2( 90, 351.579 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 35, 0, 0, 36, 0, 0, 37, 0, 0, 38, 0, 0, 39, 0, 0, 40, 0, 0, 41, 0, 0, 42, 0, 0, 43, 0, 0, 44, 0, 0, 45, 0, 0, 46, 0, 0, 47, 0, 0, 48, 0, 0, 49, 0, 0, 50, 0, 0, 131067, 1, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 1, 0, 65553, 1, 0, 65554, 1, 0, 65555, 1, 0, 65556, 1, 0, 65557, 1, 0, 65558, 1, 0, 65559, 1, 0, 65560, 1, 0, 65561, 1, 0, 65562, 1, 0, 65563, 1, 0, 65564, 1, 0, 65565, 1, 0, 65566, 1, 0, 65567, 1, 0, 65568, 1, 0, 65569, 1, 0, 65570, 1, 0, 65571, 1, 0, 65572, 1, 0, 65573, 1, 0, 65574, 1, 0, 65575, 1, 0, 65576, 1, 0, 65577, 1, 0, 65578, 1, 0, 65579, 1, 0, 65580, 1, 0, 65581, 1, 0, 65582, 1, 0, 65583, 1, 0, 65584, 1, 0, 65585, 1, 0, 65586, 1, 0, 196603, 1, 0, 196604, 1, 0, 196605, 1, 0, 196606, 1, 0, 196607, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131085, 1, 0, 131086, 1, 0, 131087, 1, 0, 131088, 1, 0, 131089, 1, 0, 131090, 1, 0, 131091, 1, 0, 131092, 1, 0, 131093, 1, 0, 131094, 1, 0, 131095, 1, 0, 131096, 1, 0, 131097, 1, 0, 131098, 1, 0, 131099, 1, 0, 131100, 1, 0, 131101, 1, 0, 131102, 1, 0, 131103, 1, 0, 131104, 1, 0, 131105, 1, 0, 131106, 1, 0, 131107, 1, 0, 131108, 1, 0, 131109, 1, 0, 131110, 1, 0, 131111, 1, 0, 131112, 1, 0, 131113, 1, 0, 131114, 1, 0, 131115, 1, 0, 131116, 1, 0, 131117, 1, 0, 131118, 1, 0, 131119, 1, 0, 131120, 1, 0, 131121, 1, 0, 131122, 1, 0 )
+script = ExtResource( 5 )
+
+[node name="ground2" type="CanvasLayer" parent="Ground"]
+
+[node name="ground" type="Sprite" parent="Ground/ground2"]
+visible = false
+position = Vector2( 825.868, 451.397 )
+scale = Vector2( 55.885, 3.47239 )
+texture = ExtResource( 11 )
+
+[node name="boundary" type="KinematicBody2D" parent="."]
+position = Vector2( 1.75806, -7.03236 )
+collision_mask = 3
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundary"]
+position = Vector2( -133.589, 361.758 )
+shape = SubResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6.65827, -37.8322 )
+gravity = 4.9
+
+[node name="JumpTimer" type="Timer" parent="Player"]
+wait_time = 0.2
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2( 3.05176e-05, -3.51618 )
+stream = ExtResource( 9 )
+
+[node name="HUD" parent="." instance=ExtResource( 8 )]
+
+[node name="GroundPos" type="Position2D" parent="."]
+position = Vector2( -253.243, 211.321 )
+
+[node name="PlayerPos" type="Position2D" parent="."]
+position = Vector2( 8.79037, -31.6456 )
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="sky" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 836.476, 265.38 )
+scale = Vector2( 2.12702, 1.35479 )
+texture = ExtResource( 10 )
+[connection signal="timeout" from="Spikes/SpikeTimer" to="Spikes" method="_on_SpikeTimer_timeout"]
+[connection signal="hit" from="boundary" to="Ground" method="on_bound_hit"]
+[connection signal="hit" from="boundary" to="Spikes" method="_on_boundary_hit"]
+[connection signal="game_over" from="Player" to="HUD" method="game_over"]
+[connection signal="game_over" from="Player" to="." method="_on_Player_game_over"]
+[connection signal="timeout" from="Player/JumpTimer" to="Player" method="_on_JumpTimer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="start_game"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]

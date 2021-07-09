@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Cherry Blue.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 55
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 45
+font_data = ExtResource( 1 )
+
+[sub_resource type="InputEventAction" id=6]
+action = "ui_up"
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 35
+font_data = ExtResource( 1 )
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.407
+anchor_top = 0.153
+anchor_right = 0.604
+anchor_bottom = 0.415
+margin_left = 0.0392761
+margin_top = -0.0849686
+margin_right = 0.197266
+margin_bottom = -0.0509644
+custom_fonts/font = SubResource( 1 )
+text = "Slime Run"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.426
+anchor_top = 0.701
+anchor_right = 0.591
+anchor_bottom = 0.833
+margin_left = -0.380219
+margin_top = 0.051178
+margin_right = -0.0701904
+margin_bottom = 0.175171
+custom_fonts/font = SubResource( 2 )
+shortcut = SubResource( 4 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+anchor_left = 0.451
+anchor_top = 0.044
+anchor_right = 0.552
+anchor_bottom = 0.136
+margin_left = 0.268127
+margin_top = 0.123289
+margin_right = -0.117889
+margin_bottom = -0.032711
+custom_fonts/font = SubResource( 5 )
+text = "Score: 0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundButton" type="TextureButton" parent="."]
+visible = false
+anchor_left = 0.872
+anchor_top = 0.043
+anchor_right = 0.952
+anchor_bottom = 0.135
+margin_left = -0.392029
+margin_top = 0.101
+margin_right = -0.272034
+margin_bottom = -0.0550003
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="start_game"]
