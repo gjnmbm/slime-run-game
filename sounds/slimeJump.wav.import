@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/slimeJump.wav-56461eafc9e3e06705fa5d8bcdf30e01.sample"
+
+[deps]
+
+source_file="res://sounds/slimeJump.wav"
+dest_files=[ "res://.import/slimeJump.wav-56461eafc9e3e06705fa5d8bcdf30e01.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
