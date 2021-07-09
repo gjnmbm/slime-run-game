@@ -2,9 +2,9 @@ extends KinematicBody2D
 
 signal hit
 #Might be the reason for the mass deletion of tiles
-var nullVel = Vector2(0,0)
-#Works, but I am not certain if this will 
-#stop the bugs with mass tile deletion
+var nullVel = Vector2(1,0)
+#Was having a 0,0 vector what caused the mass 
+#deletion of tiles sometimes...? It works?
 var forwardVel = Transform2D()
 
 func _physics_process(delta):
